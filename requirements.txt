@@ -1,0 +1,7 @@
+APScheduler
+fastapi
+uvicorn[standard]
+pydantic
+pandas
+numpy
+SQLAlchemy
