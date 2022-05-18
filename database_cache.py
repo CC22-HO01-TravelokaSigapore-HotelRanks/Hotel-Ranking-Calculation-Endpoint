@@ -1,5 +1,6 @@
 import pandas as pd
 import sqlalchemy as sql_a
+import os
 
 class DatabaseCache:
     engine = None
@@ -10,9 +11,9 @@ class DatabaseCache:
     
     def __init__(self, con_str: str) -> None:
         # Create SQL Alchemy Connection to the Database
-        # self.engine = sql_a.create_engine(con_str)
-        # self.engine.connect()
-        pass
+        self.engine = sql_a.create_engine(con_str, connect_args={'connect_timeout': 5})
+        self.engine.connect()
+        print("INFO: Database Connected")        
     
     def update_df(self) -> None:
         for i in self.database_query:
@@ -22,4 +23,9 @@ class DatabaseCache:
         return self.df[name]
     
 # Instantiate Database Cache
-db = DatabaseCache("")
+host = os.getenv("DB_HOST")
+port = os.getenv("DB_PORT")
+username = os.getenv("DB_USER")
+password = os.getenv("DB_PASSWORD")
+database_name = os.getenv("DB_NAME")
+db = DatabaseCache(f"mysql://{username}:{password}@{host}:{port}/{database_name}")
