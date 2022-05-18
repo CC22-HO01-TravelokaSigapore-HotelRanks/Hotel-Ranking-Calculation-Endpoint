@@ -5,7 +5,7 @@ import os
 class DatabaseCache:
     engine = None
     database_query = {
-        "review_sentiment" : "SELECT user_id, review_id, sentiment FROM Review" 
+        "hotels" : "SELECT * FROM hotel_dummy_photos" 
     }
     df = {}
     
@@ -13,11 +13,14 @@ class DatabaseCache:
         # Create SQL Alchemy Connection to the Database
         self.engine = sql_a.create_engine(con_str, connect_args={'connect_timeout': 5})
         self.engine.connect()
-        print("INFO: Database Connected")        
+        print("INFO: Database Connected")
+        self.update_df()
     
     def update_df(self) -> None:
+        print("INFO: Updating Database Cache")
         for i in self.database_query:
-            self.df[i] = pd.read_sql(self.database_query[i])
+            self.df[i] = pd.read_sql(self.database_query[i], self.engine)
+        print("INFO: Database Cached")
                 
     def get_dataframe(self, name:str) -> pd.DataFrame:
         return self.df[name]
