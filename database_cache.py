@@ -21,6 +21,7 @@ class DatabaseCache:
         for i in self.database_query:
             temp_df = pd.read_sql(self.database_query[i], self.engine)
             temp_df.dropna(inplace=True)
+            temp_df.reset_index(drop=True, inplace=True)
             self.df[i] = self.df_evaluate_object(temp_df)
         print("INFO: Database Cached")
                 

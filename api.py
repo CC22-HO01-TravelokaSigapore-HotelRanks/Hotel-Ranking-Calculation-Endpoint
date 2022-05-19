@@ -6,9 +6,6 @@ from fastapi import APIRouter, Response, status
 import pandas as pd
 import numpy as np
 
-# Hotel Similarity
-import modules.hotel_similarity as similarity_mods
-
 router = APIRouter()
 
 @router.get("/")
@@ -35,28 +32,7 @@ async def hotel_ranking(response: Response):
         print(e)
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
         return "Internal server error"
-
-@router.post("/hotel-similarity/{hotel_id}")
-async def hotel_similar(hotel_id: int, response: Response):
-    """
-    An API for calculating similarity between hotel of interest and the other
-    hotel using cosine similarity. 
-    """
-    try:
-        df = db.get_dataframe("hotels").copy()
-        
-        # # Check if hotel of interest is in the dataframes
-        # # WARNING NO ID CHECKING
-        # if not similarity_mods.id_is_available(hotel_id, df):
-        #     response.status_code = status.HTTP_400_BAD_REQUEST
-        #     return "Hotel ID is not found/cached yet in ML. Please do recached on POST /re-cached/"
-        
-        # Calculate cosine similarity and give recommendation
-        # TODO: Convert ids to idx
-        idx_recommendation = similarity_mods.hotel_similarity(hotel_id, 10, df)
-        # TODO: Convert idx recommendation to ids
-        return idx_recommendation.tolist()
-    except Exception as e:
-        print(e)
-        response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return "Internal server error"
+    
+# Hotel Similarity endpoint
+from modules.hotel_similarity.api import hotel_similarity_router
+router.include_router(hotel_similarity_router)

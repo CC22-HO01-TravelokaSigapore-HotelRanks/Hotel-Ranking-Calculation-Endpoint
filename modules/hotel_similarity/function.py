@@ -34,8 +34,8 @@ def preprocess_dataframe(df_in: pd.DataFrame) -> pd.DataFrame:
 
   return df
 
-def index_to_id(id: int, df: pd.DataFrame) -> int:
-  return df.iloc[1]["id"]
+def index_to_id(idx: int|List[int], df: pd.DataFrame) -> int:
+  return df.iloc[idx]["id"]
 
 def id_to_index(id: int, df: pd.DataFrame) -> int:
   return df[df["id"] == id].index[0]
@@ -43,7 +43,7 @@ def id_to_index(id: int, df: pd.DataFrame) -> int:
 def id_is_available(id: int, df: pd.DataFrame) -> bool:
   return  id in df["id"].to_list()
 
-def hotel_similarity(idx:int, num_recs:int, df:pd.DataFrame) -> np.ndarray:
+def give_recommendation(idx:int, num_recs:int, df:pd.DataFrame) -> np.ndarray:
   df_att = df.copy().drop(columns=["name", "neighborhood", "type_nearby_destination", "image_links"])
   df_att_norm = preprocess_dataframe(df_att)
   df_att_norm.drop(columns=["latitude", "longitude"], inplace=True)
