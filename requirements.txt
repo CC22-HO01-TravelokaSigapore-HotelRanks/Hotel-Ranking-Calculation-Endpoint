@@ -5,3 +5,4 @@ pydantic
 pandas
 numpy
 SQLAlchemy
+scikit-learn

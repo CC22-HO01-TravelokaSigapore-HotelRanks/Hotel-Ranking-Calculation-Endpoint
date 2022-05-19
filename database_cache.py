@@ -19,11 +19,27 @@ class DatabaseCache:
     def update_df(self) -> None:
         print("INFO: Updating Database Cache")
         for i in self.database_query:
-            self.df[i] = pd.read_sql(self.database_query[i], self.engine)
+            temp_df = pd.read_sql(self.database_query[i], self.engine)
+            temp_df.dropna(inplace=True)
+            temp_df.reset_index(drop=True, inplace=True)
+            self.df[i] = self.df_evaluate_object(temp_df)
         print("INFO: Database Cached")
                 
     def get_dataframe(self, name:str) -> pd.DataFrame:
         return self.df[name]
+    
+    @staticmethod
+    def df_evaluate_object(df_in: pd.DataFrame) -> pd.DataFrame:
+        df = df_in.copy()
+        cols = df.columns.to_list()
+        dtypes = df.dtypes
+        for i in cols:
+            if dtypes[i] == "O":
+                try:
+                    df[i] = df[i].map(pd.eval)
+                except:
+                    pass
+        return df
     
 # Instantiate Database Cache
 host = os.getenv("DB_HOST")
