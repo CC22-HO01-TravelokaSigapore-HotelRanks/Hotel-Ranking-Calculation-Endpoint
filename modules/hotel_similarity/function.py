@@ -44,7 +44,7 @@ def id_is_available(id: int, df: pd.DataFrame) -> bool:
   return  id in df["id"].to_list()
 
 def give_recommendation(idx:int, num_recs:int, df:pd.DataFrame) -> np.ndarray:
-  df_att = df.copy().drop(columns=["name", "neighborhood", "type_nearby_destination", "image_links"])
+  df_att = df.copy().drop(columns=["name", "neighborhood", "type_nearby_destination", "image_links", "id"])
   df_att_norm = preprocess_dataframe(df_att)
   df_att_norm.drop(columns=["latitude", "longitude"], inplace=True)
   df_att_norm.dropna(inplace=True)
