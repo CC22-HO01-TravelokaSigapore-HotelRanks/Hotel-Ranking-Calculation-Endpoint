@@ -18,6 +18,9 @@ async def hotel_similar(hotel_id: int, response: Response):
     try:
         df = db.get_dataframe("hotels").copy()
         
+        # Preprocess Dataframes
+        df = preprocess_dataframe(df)
+        
         # Check if hotel of interest is in the dataframes
         # WARNING NO ID CHECKING
         if not id_is_available(hotel_id, df):
