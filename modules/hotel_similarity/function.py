@@ -18,8 +18,9 @@ def min_max_normalization(arr:List) -> List:
 # Preprocess df
 def preprocess_dataframe(df_in: pd.DataFrame) -> pd.DataFrame:
   df = df_in.copy()
+  df = delete_hotel_reconstruct(df)
   column_not_processed = ["latitude", "longitude"]
-
+  
   for i in df.columns:
     current_list = df[i].to_list()
 
@@ -42,6 +43,11 @@ def id_to_index(id: int, df: pd.DataFrame) -> int:
 
 def id_is_available(id: int, df: pd.DataFrame) -> bool:
   return  id in df["id"].to_list()
+
+def delete_hotel_reconstruct(df_in:pd.DataFrame) -> pd.DataFrame:
+  df = df_in.copy()
+  # TODO: If using soft deltes, please be aware you need to delete row with the deleted_at is not null
+  return df
 
 def give_recommendation(idx:int, num_recs:int, df:pd.DataFrame) -> np.ndarray:
   df_att = df.copy().drop(columns=["name", "neighborhood", "type_nearby_destination", "image_links", "id"])
