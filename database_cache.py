@@ -5,7 +5,10 @@ import os
 class DatabaseCache:
     engine = None
     database_query = {
-        "hotels" : "SELECT * FROM hotel_dummy_photos" 
+        "hotels" : "SELECT * FROM hotel_dummy_photos" ,
+        "hotels_id" : "SELECT id FROM hotel_dummy_photos",
+        "reviews_sentiment" : "SELECT hotel_id, user_id, labels FROM coba_review",
+        "users_id" : "SELECT id FROM Users"
     }
     df = {}
     
