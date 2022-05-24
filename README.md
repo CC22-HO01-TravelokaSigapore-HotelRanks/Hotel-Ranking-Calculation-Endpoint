@@ -2,6 +2,11 @@
 
 This is an endpoint for api for all our hotel ranking scripts.
 
+| Information  | Value                           |
+|--------------|---------------------------------|
+| Docker Image | [kaenova/traveloka-hotel-ranking](https://hub.docker.com/r/kaenova/traveloka-hotel-ranking) |
+| Port Open    | 8001                            |
+
 # Environment Variables
 | Variables   | Description                      |
 |-------------|----------------------------------|

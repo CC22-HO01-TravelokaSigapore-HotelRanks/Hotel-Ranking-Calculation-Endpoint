@@ -1,4 +1,4 @@
-name: Staging Docker Imaging - Sentiment Prediction
+name: Staging Docker Imaging - Hotel Ranking
 
 on:
   push:
