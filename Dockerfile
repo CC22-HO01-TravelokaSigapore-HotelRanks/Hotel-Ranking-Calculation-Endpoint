@@ -6,6 +6,8 @@ COPY . .
 
 RUN apt-get update
 
+RUN apt-get install python3-dev default-libmysqlclient-dev build-essential
+
 RUN pip install -r requirements.txt
 
 ENV HOST 0.0.0.0
