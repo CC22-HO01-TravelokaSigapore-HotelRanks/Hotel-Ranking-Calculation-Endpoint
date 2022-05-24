@@ -5,4 +5,5 @@ pydantic
 pandas
 numpy
 SQLAlchemy
+mysqlclient
 scikit-learn
