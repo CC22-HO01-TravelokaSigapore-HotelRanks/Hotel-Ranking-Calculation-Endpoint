@@ -35,9 +35,12 @@ async def hotel_ranking(response: Response):
         return "Internal server error"
     
 # Hotel Similarity endpoint
-from modules.hotel_similarity.api import hotel_similarity_router
-router.include_router(hotel_similarity_router)
+# from modules.hotel_similarity.api import hotel_similarity_router
+# router.include_router(hotel_similarity_router)
 
 # Sentiment Similarity endpoint
 from modules.sentiment_colaborative.api import sentiment_similarity_router
 router.include_router(sentiment_similarity_router)
+
+from modules.trending_system.api import trending_system_router
+router.include_router(trending_system_router)
