@@ -43,7 +43,7 @@ IF User IDs not Found:
 ![image](https://user-images.githubusercontent.com/61568092/169698039-9f596f8f-895e-48b8-8a6a-3f0c0e123476.png)
 
 ## Trending Recommendation API
-Trending Recommendation endpoint is based on the number of reviews and its average rating with the formulation of then end score: number of reviews * (average rating * 1.2)    
+Trending Recommendation endpoint is based on the number of reviews and its average rating with the formulation of then end score: number of reviews * (average rating * 1.2), the output would be a list of Hotel ID sorted from having the best to the worst score    
 
 | Endpoint                     | Input                      | Output                                                           |
 |------------------------------|----------------------------|------------------------------------------------------------------|
