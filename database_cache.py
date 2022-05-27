@@ -8,7 +8,8 @@ class DatabaseCache:
         "hotels" : "SELECT * FROM hotel_dummy_photos" ,
         "hotels_id" : "SELECT id FROM hotel_dummy_photos",
         "reviews_sentiment" : "SELECT hotel_id, user_id, labels FROM coba_review",
-        "users_id" : "SELECT id FROM Users"
+        "users_id" : "SELECT id FROM Users",
+        "reviews": "select * from coba_review"
     }
     df = {}
     
@@ -50,12 +51,4 @@ port = os.getenv("DB_PORT")
 username = os.getenv("DB_USER")
 password = os.getenv("DB_PASSWORD")
 database_name = os.getenv("DB_NAME")
-con_str = os.getenv("DB_CON_STRING")
-
-final_con_str = "mysql://"
-if con_str is not None:
-    final_con_str += con_str
-else:
-    final_con_str += f"{username}:{password}@{host}:{port}/{database_name}"
-
-db = DatabaseCache(final_con_str)
+db = DatabaseCache(f"mysql://{username}:{password}@{host}:{port}/{database_name}")
