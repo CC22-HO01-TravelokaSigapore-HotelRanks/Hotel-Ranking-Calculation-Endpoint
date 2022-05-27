@@ -51,7 +51,7 @@ Trending Recommendation endpoint is based on the number of reviews and its avera
 
 Example:
 If Success:  
-![image](https://user-images.githubusercontent.com/61568092/169243556-4432b73c-e812-4c8c-b45e-101a009da98f.png)
+![image](![Uploading 1222344221123.JPG…]()
 
 ## Force Caching API
 If you want to force caching in the ML endpoint, just hit this method.
