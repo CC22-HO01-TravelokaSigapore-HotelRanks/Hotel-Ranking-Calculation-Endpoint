@@ -51,7 +51,7 @@ Trending Recommendation endpoint is based on the number of reviews and its avera
 
 Example:
 If Success:  
-![image](![Uploading 1222344221123.JPG…]()
+![image](https://user-images.githubusercontent.com/58240454/170513139-8e011a8d-4f73-4f97-865c-1f02b00e601a.JPG)
 
 ## Force Caching API
 If you want to force caching in the ML endpoint, just hit this method.
@@ -60,7 +60,7 @@ If you want to force caching in the ML endpoint, just hit this method.
 | POST `/re-cached/` | -     | Text   |
 
 Example:   
-![image](https://user-images.githubusercontent.com/58240454/170513139-8e011a8d-4f73-4f97-865c-1f02b00e601a.JPG)
+![image](https://user-images.githubusercontent.com/61568092/169244412-7f70bce6-5ae4-4f18-b5bd-42090705fd83.png)
 
 ## Check Rows Cached
 If you want to check how many rows cached
