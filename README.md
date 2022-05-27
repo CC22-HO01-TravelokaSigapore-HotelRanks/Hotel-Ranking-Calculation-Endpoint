@@ -2,6 +2,11 @@
 
 This is an endpoint for api for all our hotel ranking scripts.
 
+| Information  | Value                           |
+|--------------|---------------------------------|
+| Docker Image | [kaenova/traveloka-hotel-ranking](https://hub.docker.com/r/kaenova/traveloka-hotel-ranking) |
+| Port Open    | 8001                            |
+
 # Environment Variables
 | Variables   | Description                      |
 |-------------|----------------------------------|
@@ -10,6 +15,7 @@ This is an endpoint for api for all our hotel ranking scripts.
 | DB_HOST     | Database IP Address or Host name |
 | DB_PORT     | Database Port                    |
 | DB_NAME     | Database Name                    |
+| DB_CON_STRING     | Database Connection String (if used, will ignore all DB ENV above)                   |
 
 # APIs
 ## Hotel Similarity API

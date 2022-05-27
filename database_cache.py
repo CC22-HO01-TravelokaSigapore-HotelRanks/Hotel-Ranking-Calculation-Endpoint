@@ -51,4 +51,12 @@ port = os.getenv("DB_PORT")
 username = os.getenv("DB_USER")
 password = os.getenv("DB_PASSWORD")
 database_name = os.getenv("DB_NAME")
-db = DatabaseCache(f"mysql://{username}:{password}@{host}:{port}/{database_name}")
+con_str = os.getenv("DB_CON_STRING")
+
+final_con_str = "mysql://"
+if con_str is not None:
+    final_con_str += con_str
+else:
+    final_con_str += f"{username}:{password}@{host}:{port}/{database_name}"
+
+db = DatabaseCache(final_con_str) 
