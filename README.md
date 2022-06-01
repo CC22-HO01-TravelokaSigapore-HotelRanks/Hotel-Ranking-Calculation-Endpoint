@@ -29,7 +29,7 @@ If Success:
 ![image](https://user-images.githubusercontent.com/61568092/169243556-4432b73c-e812-4c8c-b45e-101a009da98f.png)
 
 If Hotel Ids is not cached in ML Endpoint or Cannot be Processed for Hotel Similarity:  
-![image](https://user-images.githubusercontent.com/61568092/169243726-0f346f09-d498-4e53-815f-b13664c1b880.png)
+![image](https://user-images.githubusercontent.com/61568092/171396793-7fce1488-a8d0-4dc5-84aa-b9eb032407aa.png)  
 
 ## Collaborative Sentiment Filtering API
 A recommendation system based on weighted similarity sentiment reivews
@@ -46,7 +46,7 @@ If Success but No Recommendation Because of all hotels is been reviewed by the u
 ![image](https://user-images.githubusercontent.com/61568092/169698126-55871840-9cf4-4a9d-ac0d-f01ad12c9d22.png)
 
 IF User IDs not Found:  
-![image](https://user-images.githubusercontent.com/61568092/169698039-9f596f8f-895e-48b8-8a6a-3f0c0e123476.png)
+![image](https://user-images.githubusercontent.com/61568092/171396975-d0a34704-64d8-4334-a90e-ba6b4f6aaec6.png)
 
 ## Trending Recommendation API
 Trending Recommendation endpoint is based on the number of reviews and its average rating with the formulation of then end score: number of reviews * (average rating * 1.2), the output would be a list of Hotel ID sorted from having the best to the worst score    

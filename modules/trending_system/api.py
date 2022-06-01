@@ -25,4 +25,4 @@ async def trending_system(response: Response):
     except Exception as e:
         traceback.print_exc()
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return "Internal server error"
+        return {"message" : "Internal server error"} 

@@ -21,7 +21,7 @@ async def sentiment_similarity(user_id: int, response: Response):
         if user_id not in df_users["id"].to_list():
             print("Masuk")
             response.status_code = status.HTTP_400_BAD_REQUEST
-            return "User ID is not found/cached yet in ML. Please do recached on POST /re-cached/"
+            return {"message" : "User ID is not found/cached yet in ML. Please do recached on POST /re-cached/"} 
         
         df_reviews = db.get_dataframe("reviews_sentiment")
         df_hotels = db.get_dataframe("hotels_id")
@@ -30,7 +30,7 @@ async def sentiment_similarity(user_id: int, response: Response):
         similarity = get_user_similarity(matrix, user_id)
         not_reviewed = get_hotel_not_reviewed(matrix, user_id)
         return give_recommendation(10, matrix, not_reviewed, similarity)
-    except Exception as e:
+    except Exception:
         traceback.print_exc()
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return "Internal server error"
+        return {"message" : "Internal server error"}

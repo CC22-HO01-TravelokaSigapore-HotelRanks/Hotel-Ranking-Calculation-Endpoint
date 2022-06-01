@@ -16,11 +16,11 @@ async def hello_world():
 async def re_cached_db(response: Response):
     try:
         db.update_df()
-        return "Success"
+        return {"message" : "Success"}
     except Exception as e:
         print(e)
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return "Cannot re-cached database"
+        return {"message":"Cannot re-cached database"} 
 
 @router.get("/rows-cached/")
 async def hotel_ranking(response: Response):
@@ -32,7 +32,7 @@ async def hotel_ranking(response: Response):
     except Exception as e:
         print(e)
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return "Internal server error"
+        return {"message" : "Internal server error" }
     
 # Hotel Similarity endpoint
 from modules.hotel_similarity.api import hotel_similarity_router
