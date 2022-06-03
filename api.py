@@ -16,11 +16,11 @@ async def hello_world():
 async def re_cached_db(response: Response):
     try:
         db.update_df()
-        return {"message" : "Success"}
+        return "Success"
     except Exception as e:
         print(e)
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return {"message":"Cannot re-cached database"} 
+        return "Cannot re-cached database"
 
 @router.get("/rows-cached/")
 async def hotel_ranking(response: Response):
@@ -32,15 +32,15 @@ async def hotel_ranking(response: Response):
     except Exception as e:
         print(e)
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return {"message" : "Internal server error" }
+        return "Internal server error"
     
 # Hotel Similarity endpoint
-from modules.hotel_similarity.api import hotel_similarity_router
-router.include_router(hotel_similarity_router)
+# from modules.hotel_similarity.api import hotel_similarity_router
+# router.include_router(hotel_similarity_router)
 
 # Sentiment Similarity endpoint
-from modules.sentiment_colaborative.api import sentiment_similarity_router
-router.include_router(sentiment_similarity_router)
+# from modules.sentiment_colaborative.api import sentiment_similarity_router
+# router.include_router(sentiment_similarity_router)
 
-from modules.trending_system.api import trending_system_router
-router.include_router(trending_system_router)
+from modules.near_you.api import near_you_router
+router.include_router(near_you_router)
