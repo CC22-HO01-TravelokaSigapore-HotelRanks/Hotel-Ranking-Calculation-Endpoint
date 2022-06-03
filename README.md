@@ -59,6 +59,17 @@ Example:
 If Success:  
 ![image](https://user-images.githubusercontent.com/58240454/170513139-8e011a8d-4f73-4f97-865c-1f02b00e601a.JPG)
 
+## Near You API
+Near You API endpoint is based on user's position, and it will show several hotels that are near the user's location.
+
+| Endpoint                     | Input                      | Output                                                           |
+|------------------------------|----------------------------|------------------------------------------------------------------|
+| POST `/trending_system/` | - | - | List of Hotel ID near the user
+
+Example:
+If Success:  
+![image](https://user-images.githubusercontent.com/58240454/171826274-237f0a79-621e-4e43-af05-78ed97c506d6.JPG)
+
 
 ## Force Caching API
 If you want to force caching in the ML endpoint, just hit this method.
