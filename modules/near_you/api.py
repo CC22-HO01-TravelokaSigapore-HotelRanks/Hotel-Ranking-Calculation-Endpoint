@@ -23,11 +23,11 @@ async def sentiment_similarity(request: Request, response: Response):
 
         if not (type(latitude) == float and type(longitude) == float):
             response.status_code = status.HTTP_400_BAD_REQUEST
-            return "Position is not found/cached yet in ML. Please do recached on POST /re-cached/"
+            return {"message" : "Position is not found/cached yet in ML. Please do recached on POST /re-cached/"}
 
         user_coor = (latitude, longitude)
         return near_you(user_coor,df_hotels)
     except Exception as e:
         traceback.print_exc()
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        return "Internal server error"
+        return {"message" : "Internal server error"}
