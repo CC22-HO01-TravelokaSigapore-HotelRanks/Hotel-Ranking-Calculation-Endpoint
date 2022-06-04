@@ -7,3 +7,4 @@ numpy
 SQLAlchemy
 mysqlclient
 scikit-learn
+haversine
